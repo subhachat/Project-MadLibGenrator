@@ -61,17 +61,18 @@ while(True):
     else:
         if("exit" == entry_word):
             break
-        if (entry_num in [1,2,3,4]):
-            if (entry_num not in index_filled_in):
-                index_filled_in.append(entry_num)
-            elif (entry_num in index_filled_in):
-                print("Warn: Already filled in...Select another blank number")
-            
-            if(entry_word == missing_words_list[entry_num-1]):
-                matchWords += 1
-        else:
-            print("Warn: Choose a valid blank number to fill in <##>")
 
+        if (entry_num not in [1,2,3,4]):
+            print("Warn: Choose a valid blank number to fill in <##>")
+            continue
+        
+        if (entry_num not in index_filled_in):
+            index_filled_in.append(entry_num)
+        else:
+            print("Warn: Already filled in...Select another blank number")
+        
+        if(entry_word == missing_words_list[entry_num-1]):
+            matchWords += 1
 
 if (matchWords == len(missing_words_list)):
     print("Yayyy...YOU WIN!!!")
